@@ -1,0 +1,128 @@
+.contact {
+    height: 65vh;
+    /*
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    */
+}
+
+
+.contact-info {
+    display: grid;
+    grid-template: "b a c";
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.contact-info h3 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1rem;
+}
+
+.contact-info img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    display: block;
+    filter: invert(1);
+}
+
+.contact-info div {
+    background: #191b26;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 80%;
+    display: grid;
+    gap: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    grid-template-columns: repeat(auto-fit);
+    align-items: center;
+}
+
+.contact-info div:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.contact-info a {
+    color: #eee;
+    padding: 0.3rem;
+    max-height: 1.6rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contact-info p {
+    color: #eee;
+    padding: 0.3rem;
+    max-height: 1.6rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 1rem;
+}
+.contact-info a:hover {
+    color: #ddd;
+    padding: 0.3rem;
+    max-height: 1.6rem;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.Youtube-links a {
+    background: #ff0000;
+}
+
+.Youtube-links a:hover {
+    background: #d01010;
+}
+
+.Twitter-links a {
+    background: #1DA1F2;
+}
+
+.Twitter-links a:hover {
+    background:  #2DB1D2;
+}
+
+.discord-links a {
+    background: #7289D7;
+}
+
+.discord-links a:hover {
+    background: #8299F7;
+}
+
+.github-links a {
+    background: #333333;
+}
+
+.github-links a:hover {
+    background: #666666;
+}
+
+.itchio-links a {
+    background: #FA5C5C;
+}
+
+.itchio-links a:hover {
+    background: #DA6C6C;
+}
