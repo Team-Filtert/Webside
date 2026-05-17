@@ -154,8 +154,11 @@ section {
 .characters {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
+    overflow: visible;
 }
 
+.b_card,
 .card {
     padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
@@ -164,11 +167,12 @@ section {
     max-width: 15rem;
 }
 
-
+.b_card:hover,
 .card:hover {
     transform: scale(1.05);
 }
 
+.b_card img,
 .card img {
     width: 3rem;
     height: 3rem;

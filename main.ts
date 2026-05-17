@@ -1,3 +1,4 @@
+
 const text = "A Neuro-sama fan game presented by team Filtered";
 
 let i: number = 0;
@@ -61,3 +62,8 @@ async function loadComponent(id: string, path: string) {
 loadComponent("navbar", "./components/navbar.html");
 
 loadComponent("footer", "./components/footer.html");
+
+import { initTeamCards } from "./team.js";
+document.addEventListener("DOMContentLoaded", () => {
+  initTeamCards(); // targets all .card elements by default
+});
