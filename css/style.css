@@ -165,9 +165,10 @@ section {
     border: 1px solid white;
     transition: 0.3s;
     max-width: 15rem;
+    
 }
 
-.b_card:hover,
+
 .card:hover {
     transform: scale(1.05);
 }
