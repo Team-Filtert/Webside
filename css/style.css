@@ -1,0 +1,182 @@
+:root {
+    --bg: #090b16;
+    --blue: #72d7ff;
+    --pink: #ff68c2;
+    --text: white;
+}
+
+
+body {
+    margin: 0;
+    font-family: Inter;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    /*padding: 2rem;*/
+    text-align: center;
+    align-items: center;
+    background: #232;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 1rem;
+}
+
+nav img {
+    padding-left: 1rem;
+}
+
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.story {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1,
+h2 {
+    font-family: "Press Start 2P";
+    line-height: 1.8;
+}
+
+h1 a,
+h2 a {
+    text-decoration: none;
+    color: white;
+}
+
+.team-logo {
+    width: 10rem;
+}
+
+.logo {
+    width: 40rem;
+}
+
+.link-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    display: block;
+}
+
+.link-btns {
+    display: flex;
+
+    align-items: center;
+}
+
+.link-btns a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    padding: 1rem;
+    margin: 1rem;
+    background: var(--blue);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    background: var(--pink);
+}
+
+button span {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1rem;    
+}
+
+.btn {
+    margin: 1rem;
+    background: var(--blue);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background: var(--pink);
+}
+
+.btn span {
+    padding: 1rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1rem;
+}
+
+section {
+    padding: 5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.gallery img {
+    width: 100%;
+    border: 3px solid white;
+}
+
+.characters {
+    display: flex;
+    gap: 2rem;
+}
+
+.card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid white;
+    transition: 0.3s;
+    max-width: 15rem;
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.patch {
+    border: 1px solid white;
+    padding: 2rem;
+}
+
