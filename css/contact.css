@@ -1,18 +1,7 @@
-.contact {
-    height: 65vh;
-    /*
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    */
-}
-
-
 .contact-info {
-    display: grid;
-    grid-template: "b a c";
+    display: flex;
+    flex-wrap: wrap;
+    /*grid-template: "b a c";*/
     gap: 2.5rem;
     align-items: center;
 }
@@ -24,6 +13,7 @@
     margin-left: auto;
     margin-right: auto;
     gap: 1rem;
+    opacity: 1;
 }
 
 .contact-info img {
@@ -32,23 +22,28 @@
     object-fit: contain;
     display: block;
     filter: invert(1);
+    opacity: 1;
 }
 
+
 .contact-info div {
-    background: #191b26;
-    max-width: 80%;
+    background: rgba(25,27,38,0.4);
+    max-width: 50%;
     margin-left: auto;
     margin-right: auto;
-    min-width: 80%;
+    min-width: 30%;
     display: grid;
     gap: 0.7rem;
     padding: 0.5rem;
     border-radius: 1rem;
     grid-template-columns: repeat(auto-fit);
     align-items: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-info div:hover {
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(25,27,38,1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -63,9 +58,12 @@
     text-decoration: none;
     border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        color 0.2s ease;
 }
 
 .contact-info p {
@@ -78,13 +76,20 @@
     text-align: center;
     text-decoration: none;
     border-radius: 1rem;
+    opacity: 1;
+    
 }
+
 .contact-info a:hover {
     color: #ddd;
     padding: 0.3rem;
     max-height: 1.6rem;
     transform: translateY(-0.1rem);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease;
 }
 
 .Youtube-links a {
