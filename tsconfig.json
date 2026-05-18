@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "lib": ["ES2020", "DOM"],
-    "types": ["vite/client"],
-    "module": "preserve",
-    "moduleResolution": "bundler",
+    "target": "ES2015",
+    "lib": ["ES2015", "DOM"],
+    "module": "ES2015",
+    "moduleResolution": "node",
     "strict": true
   },
   "exclude": ["node_modules"]
