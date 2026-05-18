@@ -173,6 +173,10 @@ section {
     transform: scale(1.05);
 }
 
+.b_card a {
+	color: white;
+	text-decoration: none;
+}
 .b_card img,
 .card img {
     width: 3rem;
