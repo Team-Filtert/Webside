@@ -1,6 +1,6 @@
-# team-filtert.github.io
+# Team Filtered website
 
-Website hould be live @ https://team-filtert.github.io/
+Website should be live @ https://team-filtert.github.io/
 
 ## Developing
 
