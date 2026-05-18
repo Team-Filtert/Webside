@@ -33,5 +33,9 @@ When adding web components, they must be placed in `public/components` (effectiv
 
 - **Do NOT commit built files into the repository!** They should already be gitignored for you, do not try and bypass it!
 - Vite also handles bundling JS dependencies, so if we ever do need it (for some reason, I don't see why we should), this should be simple.
-- Try and limit committing binary files to the repository, like images. These can balloon the size of the repo permanently.
+- - Try and limit committing binary files to the repository, like images. These can balloon the size of the repo permanently.
+- There should be no need to compile other languages to WASM, so you should not commit scripts in other langs to this repo.
+    - Equally too, don't commit compiled WASM binaries to get around this rule (see above top-level dot point)
+    - If you can't write in JS/TS, write in whichever language you prefer, and ask another team member to convert it to TS for you.
+    - Why? WASM takes a performance hit when you move in and out of the WASM layer, and downloading a binary just to run a couple things is very wasteful. Additionally, WASM does not have direct access to the browser DOM, so you're going to have to write JS/TS anyways.
 - Deployment is done with GitHub Actions onto GitHub Pages.
