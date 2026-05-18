@@ -17,7 +17,6 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    /*padding: 2rem;*/
     text-align: center;
     align-items: center;
     background: #232;
@@ -40,6 +39,8 @@ nav img {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 10vh;
+
 }
 
 
