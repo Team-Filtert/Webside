@@ -10,25 +10,13 @@
 //
 // IMPORTANT: add `flex-wrap: wrap` to your `.characters` container so cards
 // can reflow onto the next line when the expanded card takes more space.
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 class TeamCards {
-    constructor() {
-        this.cards = [];
-    }
+    cards = [];
     // ── Registration ──────────────────────────────────────────────────────────
     register(selector = ".card") {
         const elements = document.querySelectorAll(selector);
         elements.forEach((el) => {
-            var _a;
-            const bioUrl = (_a = el.dataset.bio) !== null && _a !== void 0 ? _a : "";
+            const bioUrl = el.dataset.bio ?? "";
             if (!bioUrl)
                 console.warn("TeamCards: card missing data-bio attribute", el);
             // Re-structure the card children:
@@ -80,36 +68,32 @@ class TeamCards {
         });
     }
     // ── Toggle / expand / collapse ────────────────────────────────────────────
-    toggle(data) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (data.isOpen) {
-                this.collapse(data);
-            }
-            else {
-                this.cards.forEach((c) => { if (c.isOpen)
-                    this.collapse(c); });
-                yield this.expand(data);
-            }
-        });
+    async toggle(data) {
+        if (data.isOpen) {
+            this.collapse(data);
+        }
+        else {
+            this.cards.forEach((c) => { if (c.isOpen)
+                this.collapse(c); });
+            await this.expand(data);
+        }
     }
-    expand(data) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const inner = data.bioPanel.querySelector(".tc-bio-inner");
-            if (data.bioCache === null) {
-                inner.innerHTML = `<span class="tc-loading">Loading…</span>`;
-            }
-            data.isOpen = true;
-            data.element.classList.add("tc-expanded");
-            data.element.setAttribute("aria-expanded", "true");
-            // Open bio panel to a generous height so content is visible immediately;
-            // we'll tighten it after the real content loads.
-            data.bioPanel.style.maxHeight = "600px";
-            const bio = yield this.fetchBio(data);
-            inner.innerHTML = bio;
-            // Resize to actual content so no empty gap remains
-            requestAnimationFrame(() => {
-                data.bioPanel.style.maxHeight = data.bioPanel.scrollHeight + "px";
-            });
+    async expand(data) {
+        const inner = data.bioPanel.querySelector(".tc-bio-inner");
+        if (data.bioCache === null) {
+            inner.innerHTML = `<span class="tc-loading">Loading…</span>`;
+        }
+        data.isOpen = true;
+        data.element.classList.add("tc-expanded");
+        data.element.setAttribute("aria-expanded", "true");
+        // Open bio panel to a generous height so content is visible immediately;
+        // we'll tighten it after the real content loads.
+        data.bioPanel.style.maxHeight = "600px";
+        const bio = await this.fetchBio(data);
+        inner.innerHTML = bio;
+        // Resize to actual content so no empty gap remains
+        requestAnimationFrame(() => {
+            data.bioPanel.style.maxHeight = data.bioPanel.scrollHeight + "px";
         });
     }
     collapse(data) {
@@ -119,28 +103,26 @@ class TeamCards {
         data.bioPanel.style.maxHeight = "0";
     }
     // ── Bio fetching ──────────────────────────────────────────────────────────
-    fetchBio(data) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (data.bioCache !== null)
-                return data.bioCache;
-            if (!data.bioUrl) {
-                data.bioCache = "<p>No bio available.</p>";
-                return data.bioCache;
-            }
-            try {
-                const res = yield fetch(data.bioUrl);
-                if (!res.ok)
-                    throw new Error(`HTTP ${res.status}`);
-                const text = yield res.text();
-                const body = text.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-                data.bioCache = body ? body[1].trim() : text.trim();
-            }
-            catch (err) {
-                console.error(`TeamCards: failed to load "${data.bioUrl}"`, err);
-                data.bioCache = "<p>Could not load bio.</p>";
-            }
+    async fetchBio(data) {
+        if (data.bioCache !== null)
             return data.bioCache;
-        });
+        if (!data.bioUrl) {
+            data.bioCache = "<p>No bio available.</p>";
+            return data.bioCache;
+        }
+        try {
+            const res = await fetch(data.bioUrl);
+            if (!res.ok)
+                throw new Error(`HTTP ${res.status}`);
+            const text = await res.text();
+            const body = text.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+            data.bioCache = body ? body[1].trim() : text.trim();
+        }
+        catch (err) {
+            console.error(`TeamCards: failed to load "${data.bioUrl}"`, err);
+            data.bioCache = "<p>Could not load bio.</p>";
+        }
+        return data.bioCache;
     }
 }
 // ── Styles ────────────────────────────────────────────────────────────────────

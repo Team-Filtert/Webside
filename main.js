@@ -1,13 +1,4 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const text = "A Neuro-sama fan game presented by team Filtered";
+const text = "A Neuro-sama fan game presented by Team Filtered";
 let i = 0;
 function type() {
     const element = document.getElementById("typing");
@@ -43,12 +34,10 @@ for (let i = 0; i < 200; i++) {
     star.appendChild(middle);
     stars.appendChild(star);
 }
-function loadComponent(id, path) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(path);
-        const html = yield response.text();
-        document.getElementById(id).innerHTML = html;
-    });
+async function loadComponent(id, path) {
+    const response = await fetch(path);
+    const html = await response.text();
+    document.getElementById(id).innerHTML = html;
 }
 loadComponent("navbar", "./components/navbar.html");
 loadComponent("footer", "./components/footer.html");
