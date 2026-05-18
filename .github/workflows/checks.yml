@@ -1,0 +1,21 @@
+name: Check for plain JS files
+
+on:
+    pull_request:
+        types: [opened, reopened, ready_for_review]
+        paths:
+            - '**/*.js'
+            - '**/*.cjs'
+            - '**/*.mjs'
+
+jobs:
+    js-comment:
+        runs-on: ubuntu-latest
+        env:
+            GH_TOKEN: ${{ github.token }}
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v6
+            - name: Note on PR
+              run: |
+                gh pr comment ${{ github.event.number }} --edit-last --create-if-none -F ".github/resources/js-files-note.md"
