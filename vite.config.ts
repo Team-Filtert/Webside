@@ -32,11 +32,9 @@ export default defineConfig({
 	build: {
 		rolldownOptions: {
 			input: collectPageInputs(pagesRoot, pagesRoot),
-            output: {
-                dir: './dist',
-            },
 		},
         emptyOutDir: true,
+        outDir: '../dist',
 	},
     
     root: './src',
