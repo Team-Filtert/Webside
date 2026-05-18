@@ -1,5 +1,5 @@
 
-const text = "A Neuro-sama fan game presented by team Filtered";
+const text = "A Neuro-sama fan game presented by Team Filtered";
 
 let i: number = 0;
 
