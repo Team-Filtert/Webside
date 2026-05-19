@@ -115,6 +115,7 @@ button span {
 }
 
 .btn {
+    padding: 1rem;
     margin: 1rem;
     background: var(--blue);
     border: none;
