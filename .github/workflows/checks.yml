@@ -2,7 +2,7 @@ name: Check for plain JS files
 
 on:
     pull_request:
-        types: [opened, reopened, ready_for_review]
+        types: [opened, synchronize, reopened, ready_for_review]
         paths:
             - '**/*.js'
             - '**/*.cjs'
@@ -13,6 +13,9 @@ jobs:
         runs-on: ubuntu-latest
         env:
             GH_TOKEN: ${{ github.token }}
+        permissions:
+            contents: read
+            pull-requests: write
         steps:
             - name: Checkout repo
               uses: actions/checkout@v6

@@ -7,8 +7,6 @@
     "build": "vite build",
     "dev": "vite dev"
   },
-  "keywords": [],
-  "author": "someone clearly",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "24.12.0",
