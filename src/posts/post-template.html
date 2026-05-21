@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <link rel="icon" href="img/icon.png" />
+        <title>Neuro-sama: The Good, The Evil And The Filtered</title>
+
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/styles/stars.css">
+        <link rel="stylesheet" href="/styles/updates.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;500;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <script type="module" src="/scripts/main.ts" defer></script>
+    </head>
+    <body>
+        <div id="stars"></div>
+
+        <div id="navbar"></div>
+
+        <!--
+    The .post-header section is read by updates.ts in the browser.
+    Keep all four child divs with their exact class names.
+  -->
+        <header class="post-header">
+            <div class="post-title">Your Post Title Goes Here</div>
+            <div class="post-meta">
+                <div class="post-date">DD-MM-YYYY</div>
+                by
+                <div class="post-author">Your Name</div>
+            </div>
+            <br>
+            <div class="post-summary">
+                A one or two sentence description shown on the updates page.
+            </div>
+        </header>
+
+        <article class="post-body">
+            <p>Start writing here.</p>
+
+            <h2>A section heading</h2>
+
+            <p>More content...</p>
+        </article>
+
+        <div id="footer"></div>
+    </body>
+</html>
