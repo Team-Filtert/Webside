@@ -29,11 +29,11 @@ for (let i = 0; i < 200; i++) {
   inner.classList.add("star-inner");
 
 
-  star.style.animationDelay = Math.random() * 5 + "s";
-  star.style.animationDuration = 10 + Math.random() * 20 + "s";
+  star.style.animationDelay = Math.random() * 9 + "s";
+  star.style.animationDuration = 80 + Math.random() * 80 + "s";
   
-  middle.style.animationDelay = Math.random() * 5 + "s";
-  middle.style.animationDuration = 15 + Math.random() * 30 + "s";
+  middle.style.animationDelay = Math.random() * 11 + "s";
+  middle.style.animationDuration = 90 + Math.random() * 90 + "s";
   
   inner.style.left = Math.random() * 100 + "vw";
   inner.style.top = Math.random() * 100 + "vh";

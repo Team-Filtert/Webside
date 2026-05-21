@@ -185,18 +185,27 @@ function injectStyles(): void {
       display: flex;
       align-items: center;
       gap: 0.85rem;
+      transition: 0.3s;
     }
     .tc-expanded .tc-card-header img {
       flex-shrink: 0;
+      width: 5rem;
+      height: 5rem;
+      transition:
+          width 0.3s 5rem,
+          height 0.3s 5rem;
       /* size is already set by your .card img rule */
     }
     .tc-expanded .tc-titles h3 {
       margin: 0 0 0.2rem;
+      font-size: 1.3rem;
+      transition: 0.3s;
     }
     .tc-expanded .tc-titles p {
       margin: 0;
-      font-size: 0.8rem;
+      font-size: .9rem;
       opacity: 0.7;
+      transition: 0.3s;
     }
 
     /* ── Bio panel — slides down ── */
