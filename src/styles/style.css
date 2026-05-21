@@ -171,9 +171,13 @@ section {
     overflow: visible;
 }
 
-.b_card a {
-    color: white;
+.card a {
+    color: var(--blue);
     text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
 }
 
 .b_card,
