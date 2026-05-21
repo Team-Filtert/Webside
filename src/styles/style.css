@@ -45,7 +45,7 @@ nav img:hover {
 }
 
 .hero {
-    height: 80vh;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,13 +55,14 @@ nav img:hover {
 }
 
 .story {
-    height: 30vh;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 
 h1,
 h2 {
@@ -198,12 +199,9 @@ section {
         height 0.3s 3rem;
 }
 
-.patch {
-    border: 1px solid white;
-    padding: 2rem;
-}
 
 .other_page {
     color: white;
     transition: 0.3s;
 }
+

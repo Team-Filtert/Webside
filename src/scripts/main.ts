@@ -59,9 +59,9 @@ async function loadComponent(id: string, path: string) {
   document.getElementById(id)!.innerHTML = html;
 }
 
-loadComponent("navbar", "./components/navbar.html");
+loadComponent("navbar", "/components/navbar.html");
 
-loadComponent("footer", "./components/footer.html");
+loadComponent("footer", "/components/footer.html");
 
 import { initTeamCards } from "./team.js";
 document.addEventListener("DOMContentLoaded", () => {
