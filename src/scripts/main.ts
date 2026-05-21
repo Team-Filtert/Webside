@@ -1,15 +1,3 @@
-async function loadComponent(id: string, path: string) {
-  const response = await fetch(path);
-
-  const html = await response.text();
-
-  document.getElementById(id)!.innerHTML = html;
-}
-
-loadComponent("navbar", "./components/navbar.html");
-
-loadComponent("footer", "./components/footer.html");
-
 
 const text = "A Neuro-sama fan game presented by Team Filtered";
 
@@ -63,7 +51,17 @@ for (let i = 0; i < 200; i++) {
   stars.appendChild(star);
 }
 
+async function loadComponent(id: string, path: string) {
+  const response = await fetch(path);
 
+  const html = await response.text();
+
+  document.getElementById(id)!.innerHTML = html;
+}
+
+loadComponent("navbar", "./components/navbar.html");
+
+loadComponent("footer", "./components/footer.html");
 
 import { initTeamCards } from "./team.js";
 document.addEventListener("DOMContentLoaded", () => {
