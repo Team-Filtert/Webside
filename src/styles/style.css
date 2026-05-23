@@ -180,6 +180,7 @@ section {
     text-decoration: underline;
 }
 
+
 .b_card,
 .card {
     padding: 2rem;
@@ -203,6 +204,17 @@ section {
         height 0.3s 3rem;
 }
 
+.card_h {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.card_h img {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+}
 
 .other_page {
     color: white;

@@ -71,5 +71,14 @@
 }
 
 .post-body {
-    padding: 2rem;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.post-body h2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
