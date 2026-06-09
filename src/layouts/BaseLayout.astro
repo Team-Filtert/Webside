@@ -6,10 +6,9 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
     scripts?: `${string}.ts`[];
-    styles?: `${string}.css`[];
 }
 
-const { scripts, styles } = Astro.props;
+const { scripts } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,10 +18,6 @@ const { scripts, styles } = Astro.props;
 
         <link rel="icon" href="img/icon.png" />
         <title>Neuro-sama: The Good, The Evil And The Filtered</title>
-
-        <link rel="stylesheet" href="../styles/style.css" />
-        <link rel="stylesheet" href="../styles/stars.css" />
-        {styles?.map((s) => <link rel="stylesheet" href={s} />)}
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 
