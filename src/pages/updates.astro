@@ -2,4 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout></BaseLayout>
+<BaseLayout scripts={['../scripts/updates.ts']}>
+  <header class="updates">
+    <div class="inner">
+      <h1 class="update-h">Updates</h1>
+      <p class="tagline">Here you can find all our devlogs</p>
+      <span class="post-count">0 Devlogs</span>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="update-h">Latest</h2>
+    <div id="posts-container-latest"></div>
+    <h2 class="update-h">Other</h2>
+    <div id="posts-container"></div>
+  </main>
+</BaseLayout>
