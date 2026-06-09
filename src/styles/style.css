@@ -5,7 +5,6 @@
     --text: white;
 }
 
-
 body {
     margin: 0;
     font-family: Inter;
@@ -23,35 +22,49 @@ nav {
 }
 
 nav a {
+    transition: 0.3s;
     color: white;
     text-decoration: none;
     margin: 1rem;
 }
 
+nav a:hover {
+    transform:translateY(-.1rem);
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
 nav img {
     padding-left: 1rem;
+    transition: 0.3s;
+}
+
+nav img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
 }
 
 .hero {
-    height: 80vh;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 10vh;
-
 }
 
-
 .story {
-    height: 30vh;
+    height: 30%;
+    padding-left: 10%;
+    padding-right: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 
 h1,
 h2 {
@@ -111,11 +124,12 @@ button span {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    gap: 1rem;    
+    gap: 1rem;
 }
 
 .btn {
-    margin: 1rem;
+    padding: 0.2rem;
+    margin: 0.2rem;
     background: var(--blue);
     border: none;
     cursor: pointer;
@@ -159,10 +173,15 @@ section {
     overflow: visible;
 }
 
-.b_card a {
-	color: white;
-	text-decoration: none;
+.card a {
+    color: var(--blue);
+    text-decoration: none;
 }
+
+.card a:hover {
+    text-decoration: underline;
+}
+
 
 .b_card,
 .card {
@@ -171,7 +190,6 @@ section {
     border: 1px solid white;
     transition: 0.3s;
     max-width: 15rem;
-    
 }
 
 .card:hover {
@@ -183,10 +201,25 @@ section {
     width: 3rem;
     height: 3rem;
     object-fit: contain;
+    transition:
+        width 0.3s 3rem,
+        height 0.3s 3rem;
 }
 
-.patch {
-    border: 1px solid white;
-    padding: 2rem;
+.card_h {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.card_h img {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+}
+
+.other_page {
+    color: white;
+    transition: 0.3s;
 }
 
