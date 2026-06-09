@@ -3,12 +3,6 @@ import '../styles/style.css';
 import '../styles/stars.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-
-interface Props {
-    scripts?: `${string}.ts`[];
-}
-
-const { scripts } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,7 +21,6 @@ const { scripts } = Astro.props;
         />
 
         <script src="../scripts/main.ts" />
-        {scripts?.map((s) => <script src={s} />)}
     </head>
 
     <body>
