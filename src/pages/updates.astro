@@ -1,20 +1,66 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
----
+import "../styles/updates.css"
+import { getCollection } from 'astro:content';
 
-<BaseLayout scripts={['../scripts/updates.ts']}>
+const updates = await getCollection('updates');
+
+// optionally sort by date descending
+updates.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const latest = updates[0];
+// scripts={['../scripts/updates.ts']}
+
+// <div id="posts-container-latest"></div>
+---
+<BaseLayout>
   <header class="updates">
     <div class="inner">
       <h1 class="update-h">Updates</h1>
       <p class="tagline">Here you can find all our devlogs</p>
-      <span class="post-count">0 Devlogs</span>
+      <span class="post-count">{updates.length} Devlogs</span>
     </div>
   </header>
 
   <main>
     <h2 class="update-h">Latest</h2>
-    <div id="posts-container-latest"></div>
+    <div>
+        {latest && (
+            <article class="post-card">
+                <a href={`/updates/${latest.id}`} class="card-link">
+                    <div class="card-base">
+                        <div class="card-meta">
+                            <time class="card-date">{latest.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+                            <span class="card-author">{latest.data.author}</span>
+                            <h2 class="card-title">{latest.data.title}</h2>
+                            <p class="card-summary">{latest.data.summary}</p>
+                            <span class="card-cta">
+                                Read Devlog <span class="card-arrow">→</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        )}
+    </div>
     <h2 class="update-h">Other</h2>
-    <div id="posts-container"></div>
+    <div>
+        {updates.map(entry => (
+            <article class="post-card">
+                <a href={`/updates/${entry.id}`} class="card-link">
+                    <div class="card-base">
+                        <div class="card-meta">
+                            <time class="card-date">{entry.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+                            <span class="card-author">{entry.data.author}</span>
+                            <h2 class="card-title">{entry.data.title}</h2>
+                            <p class="card-summary">{entry.data.summary}</p>
+                            <span class="card-cta">
+                                Read Devlog <span class="card-arrow">→</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        ))}
+    </div>
   </main>
 </BaseLayout>

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "astro build",
-    "dev": "astro dev"
+    "dev": "astro dev",
+    "preview": "astro preview"
   },
   "license": "MIT",
   "devDependencies": {
