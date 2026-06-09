@@ -1,96 +1,79 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Wolfy from "../content/team/wolfy.astro";
+import Anzeal from "../content/team/anzeal.astro";
+import Fire from "../content/team/fire.astro";
+import Admiral from "../content/team/admiral.astro";
+import Lokt from "../content/team/lokt.astro";
+import Lukas from "../content/team/lukas.astro";
+import Riko from "../content/team/riko.astro";
+import Mak from "../content/team/mak.astro";
+import  '../styles/team.css'
 ---
 
 <BaseLayout>
   <header class="story">
     <h1>The Team</h1>
     <p>
-      We are Team Filtered, a group of Neuro fan and other artists, that formed
+      We are Team Filtered, a group of Neuro fans and other artists, that formed
       to bring the idea of this game to life.
     </p>
   </header>
   <section>
     <h3>Meet the Team leaders</h3>
     <div class="characters">
-      <div class="card" data-bio="/members/wolfy.html">
-        <img src="img/the_team/Wolfy.png" />
-
-        <h3>Wolfy</h3>
-
-        <p>Creative Director</p>
-      </div>
-
-      <div class="card" data-bio="/members/anzeal.html">
-        <img src="img/the_team/Anzeal.jpg" />
-
-        <h3>Anzeal</h3>
-        <p>Head of the Art, Marketing, and Translation Departments</p>
-      </div>
-
-      <div class="card" data-bio="/members/fire.html">
-        <img src="img/the_team/Firearchers.png" />
-
-        <h3>Firearchers</h3>
-        <p>Head of the Writing Department</p>
-      </div>
-
-      <div class="card" data-bio="/members/admiral.html">
-        <img src="img/the_team/AdmiralEnsin.png" />
-
-        <h3>AdmiralEnsin</h3>
-        <p>Head of the Audio and Recruitment Department</p>
-      </div>
-
-      <div class="card" data-bio="/members/lokt.html">
-        <img src="img/the_team/Lokt.png" />
-
-        <h3>Lokt</h3>
-        <p>Lead Developer</p>
-      </div>
-
-      <div class="card" data-bio="/members/lukas.html">
-        <img src="img/the_team/LukasDerBaum.svg" />
-
-        <h3>Lukas Der Baum</h3>
-        <p>Lead Game Designer</p>
-      </div>
+        <Wolfy />
+        <Anzeal />
+        <Fire />
+        <Admiral />
+        <Lokt />
+        <Lukas />
     </div>
   </section>
   <section>
     <h3>Meet the Art Department</h3>
     <div class="characters">
-      <div class="card" data-bio="/members/riko.html">
-        <img src="img/the_team/Riko.png" />
-
-        <h3>Riko</h3>
-        <p>Vice Head of the Art Department</p>
-      </div>
-
-      <div class="card" data-bio="/members/mak.html">
-        <img src="img/the_team/Mak-Blast.png" />
-
-        <h3>Mak-Blast</h3>
-        <p>Artist</p>
-      </div>
+      <Riko />
+      <Mak />
 
       <div class="card">
-        <img src="img/the_team/Ollie.png" />
-
-        <h3>Ollie</h3>
-        <p>Artist</p>
-      </div>
-      <div class="card" data-bio="/members/EJ.html">
-        <img src="img/the_team/EJ.webp" />
-
-        <h3>EJ</h3>
-        <p>Artist</p>
+        <header class="card-header">
+            <img src="img/the_team/Ollie.png" />
+          <div class="card-titles">
+            <h3>Ollie</h3>
+            <p>Artist</p>
+          </div>
+        </header>
+        <div class="bio-panel">
+            <div class="bio-inner"></div>
+            <p class="tc-loading">No bio available</p>
+        </div>
       </div>
       <div class="card">
-        <img src="img/the_team/G_pfp.jpg" />
-
-        <h3>G</h3>
-        <p>Artist</p>
+        <header class="card-header">
+            <img src="img/the_team/EJ.webp" />
+          <div class="card-titles">
+            <h3>EJ</h3>
+            <p>Artist</p>
+          </div>
+        </header>
+        <div class="bio-panel">
+            <div class="bio-inner"></div>
+            <p >Hello everybody my name is not markiplier.</p>
+        </div>
+      </div>
+      <div class="card">
+        <header class="card-header">
+            <img src="img/the_team/G_pfp.jpg" />
+          <div class="card-titles">
+            <h3>G</h3>
+            <p>Artist</p>
+          </div>
+        </header>
+        <div class="bio-panel">
+            <div class="bio-inner"></div>
+            <p class="tc-loading">No bio available</p>
+        </div>
       </div>
     </div>
   </section>

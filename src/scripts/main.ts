@@ -63,7 +63,7 @@ loadComponent("navbar", "/components/navbar.html");
 
 loadComponent("footer", "/components/footer.html");
 
-import { initTeamCards } from "./team.js";
-document.addEventListener("DOMContentLoaded", () => {
-  initTeamCards(); // targets all .card elements by default
-});
+// import { initTeamCards } from "./team.js";
+// document.addEventListener("DOMContentLoaded", () => {
+//   initTeamCards(); // targets all .card elements by default
+// });

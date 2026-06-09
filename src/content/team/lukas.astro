@@ -1,9 +1,17 @@
-<!-- bios/lukas.html -->
-<!-- Only the content inside body will be extracted and shown in the modal. -->
-<!-- You can use any HTML here: paragraphs, lists, links, etc. -->
-<!doctype html>
-<html lang="en">
-    <body>
+---
+import TeamCardLayout from "../../layouts/TeamCardLayout.astro";
+---
+
+<TeamCardLayout>
+    <header class="card-header">
+            <img src="img/the_team/LukasDerBaum.svg" />
+            <div class="card-titles">
+                <h3>Lukas DerBaum</h3>
+                <p>Lead Game Designer</p>
+            </div>
+    </header>
+    <div class="bio-panel">
+        <div class="bio-inner"></div>
         <p>
             Hi, I'm Lukas DerBaum the lead game designer, here at team filtered.
             I'm also the one who made this website. My job is to turn Wolfy's
@@ -21,5 +29,5 @@
             <a href="https://youtube.com/@LukasDerBaum" target="_blank">Youtube</a> and
             <a href="https://x.com/@DerbaumLuk37729" target="_blank">Twitter</a>.
         </p>
-    </body>
-</html>
+    </div>
+</TeamCardLayout>
