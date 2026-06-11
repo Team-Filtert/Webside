@@ -27,7 +27,7 @@ export const collections = {
             author: z.array(reference('members')),
             published: z.object({
                 draft: z.boolean().default(false),
-                on: z.string(),
+                on: z.date().default(new Date(1970, 0, 1)),
             })
         }),
     }),

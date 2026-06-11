@@ -31,7 +31,7 @@
     transition: 0.3s;
 }
 
-.card-link .card-base:hover {
+.card-base:hover {
     transform: translateY(-0.2rem);
     background: rgba(25,27,38,1);
     transition: 0.3s;
@@ -78,7 +78,13 @@
 .post-body h2 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     text-align: center;
+}
+
+.card-date-author {
+    display: flex;
+    align-items: center;
+    
 }

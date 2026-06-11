@@ -1,26 +1,53 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/updates.css"
+import { getEntries } from "astro:content";
 
 const posts = await getCollection('updates', ({ data }) => {
   return import.meta.env.PROD ? data.published.draft !== true : true;
 })
+posts.sort((a, b) => b.data.published.on.valueOf() - a.data.published.on.valueOf());
 ---
 
 <BaseLayout>
-  <header class="updates">
-    <div class="inner">
-      <h1 class="update-h">Updates</h1>
-      <p class="tagline">Here you can find all our devlogs</p>
-      <span class="post-count">0 Devlogs</span>
-    </div>
-  </header>
+    <header class="updates">
+        <div class="inner">
+            <h1 class="update-h">Updates</h1>
+            <p class="tagline">Here you can find all our devlogs</p>
+            <span class="post-count">{posts.length} Devlogs</span>
+        </div>
+    </header>
 
   <main>
-    <h2 class="update-h">Latest</h2>
-    <div id="posts-container-latest"></div>
-    <h2 class="update-h">Other</h2>
-    <div id="posts-container"></div>
+    <div>
+        {posts.map(entry => (
+            <article class="post-card">
+                <a href={`/updates/${entry.id}`} class="card-link">
+                    <div class="card-base">
+                        <div class="card-meta">
+                            <div class="card-date-author">
+                                <time class="card-time">{entry.data.published.on.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+                                by
+                                <div class="card-author">{getEntries(entry.data.author).then((a) => {
+                                    const authorNames: string[] = [];
+                                    for (const author of a) {
+                                        authorNames.push(author.data.name)
+                                    }
+                                    return authorNames;
+                                }).then((a) => a.join(', '))}</div>
+                            </div>
+                            <h2 class="card-title">{entry.data.title}</h2>
+                            <p class="card-summary">{entry.data.summary}</p>
+                            <span class="card-cta">
+                                Read Devlog <span class="card-arrow">→</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        ))}
+    </div>
   </main>
-  <script src="../../scripts/updates.ts"></script>
+  <!-- <script src="../../scripts/updates.ts"></script> -->
 </BaseLayout>
