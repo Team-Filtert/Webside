@@ -14,12 +14,12 @@
 
 .b_card img,
 .card img {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     object-fit: contain;
     transition:
-        width 0.3s 3rem,
-        height 0.3s 3rem;
+        width 0.3s 4rem,
+        height 0.3s 4rem;
 }
 
 .b_card,
@@ -44,16 +44,9 @@
 }
 
 /* for better transitions */
-.card-titles h3 {
-    transition: 0.3s;
-}
-.card-titles p {
-    transition: 0.3s;
-}
-.card-header {
-    transition: 0.3s;
-}
-
+.card-titles h3,
+.card-titles p,
+.card-header,
 .card-header img {
     transition: 0.3s;
 }
@@ -77,20 +70,20 @@
 
 .card[aria-expanded="true"] .card-header img {
   flex-shrink: 0;
-  width: 5rem;
-  height: 5rem;
+  width: 6.5rem;
+  height: 6.5rem;
   transition:
-      width 0.3s 6rem,
-      height 0.3s 6rem;
+      width 0.3s 6.5rem,
+      height 0.3s 6.5rem;
 }
 .card[aria-expanded="true"] .card-titles h3 {
   margin: 0 0 0.2rem;
-  font-size: 1.3rem;
+  font-size: 2rem;
   transition: 0.3s;
 }
 .card[aria-expanded="true"] .card-titles p {
     margin: 0;
-    font-size: .9rem;
+    font-size: 1.1rem;
     opacity: 0.7;
     transition: 0.3s;
 }
