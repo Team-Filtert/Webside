@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/updates.css"
+import { getEntries } from "astro:content";
+
+const posts = await getCollection('updates', ({ data }) => {
+  return import.meta.env.PROD ? data.published.draft !== true : true;
+})
+posts.sort((a, b) => b.data.published.on.valueOf() - a.data.published.on.valueOf());
+const latestPost = posts[0];
+---
+
+<div class="patch">
+    {latestPost && (
+        <article class="post-card">
+            <a href={`/updates/${latestPost.id}`} class="card-link">
+                <div class="card-base">
+                    <div class="card-meta">
+                        <div class="card-date-author">
+                            <time class="card-time">{latestPost.data.published.on.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+                            by
+                            <div class="card-author">{getEntries(latestPost.data.author).then((a) => {
+                                const authorNames: string[] = [];
+                                for (const author of a) {
+                                    authorNames.push(author.data.name)
+                                }
+                                return authorNames;
+                            }).then((a) => a.join(', '))}</div>
+                        </div>
+                        <h2 class="card-title">{latestPost.data.title}</h2>
+                        <p class="card-summary">{latestPost.data.summary}</p>
+                        <span class="card-cta">
+                            Read Devlog <span class="card-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </article>
+    )}
+</div>

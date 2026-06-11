@@ -1,7 +1,7 @@
 .post-card {
-    /*grid-template: "b a c";*/
+    grid-template: "b a c";
     gap: 2.5rem;
-    /*align-items: center;*/
+    align-items: center;
     padding: 1rem;
 }
 
@@ -36,10 +36,8 @@
     background: rgba(25,27,38,1);
     transition: 0.3s;
 }
-.patch .card-link,
-.patch .card-base {
-    max-width: none;
-}
+
+
 
 .card-time {
     padding: .5rem;
@@ -67,18 +65,20 @@
 }
 
 .post-summary {
-    padding: 1rem;
+    padding: 0.5rem;
 }
+
 
 .post-body {
     padding-left: 10%;
     padding-right: 10%;
 }
 
+
 .post-body h2 {
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
@@ -87,4 +87,25 @@
     display: flex;
     align-items: center;
     
+}
+
+
+.patch .card-link,
+.patch .card-base,
+.patch .post-card{
+    max-width: none;
+    padding: .1;
+    align-items: left;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 0;
+}
+
+.patch .post-card {
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    gap: 0;
+    padding: 0;
 }

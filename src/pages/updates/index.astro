@@ -8,6 +8,7 @@ const posts = await getCollection('updates', ({ data }) => {
   return import.meta.env.PROD ? data.published.draft !== true : true;
 })
 posts.sort((a, b) => b.data.published.on.valueOf() - a.data.published.on.valueOf());
+
 ---
 
 <BaseLayout>

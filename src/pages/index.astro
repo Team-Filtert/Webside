@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LastUpdate from "../components/LastUpdate.astro";
+
 import '../styles/updates.css'
 ---
 
@@ -132,9 +134,9 @@ import '../styles/updates.css'
     </p>
     <h2>Latest Update</h2>
 
-    <div class="patch" id="posts-container-latest"></div>
+    <LastUpdate />
     <br />
     <a href="/updates" class="other_page">See other posts</a>
   </section>
-  <script src="../scripts/updates.ts"></script>
+  <!-- <script src="../scripts/updates.ts"></script> -->
 </BaseLayout>
