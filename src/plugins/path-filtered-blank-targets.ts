@@ -30,7 +30,7 @@ export default function scopedExternalLinks(opts: Options): AstroIntegration {
         hooks: {
             'astro:config:setup': ({ updateConfig, logger, config }) => {
                 if (config.markdown?.processor) {
-                    logger.warn('markdown.processer is already set, config will be overridden.')
+                    logger.warn('markdown.processor is already set, config will be overridden.')
                 }
 
                 updateConfig({
