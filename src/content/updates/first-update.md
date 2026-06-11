@@ -5,8 +5,6 @@ author: [lukas, ktrain]
 published: 2026-05-22
 ---
 
-
-
 ## The beginning
 
 First why we made this website: Well simple, we were asked by multiple representatives of VTuber we want to include in our Game if we have one, and I just wanted to do some web development. That's why I one day just decided to make a website to the surprise of our director Wolfy.
