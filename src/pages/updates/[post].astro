@@ -1,0 +1,19 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+    const collection = await getCollection('updates');
+    return collection.map((v) => ({ params: { post: v.id }}));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.params;
+
+const update = await getEntry('updates', post)!;
+const C = await render(update);
+---
+
+<BaseLayout>
+    
+</BaseLayout>

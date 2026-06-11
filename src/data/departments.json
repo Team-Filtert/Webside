@@ -1,0 +1,42 @@
+[
+    {
+        "id": "programming",
+        "name": "Programming",
+        "head": "lokt"
+    },
+    {
+        "id": "art",
+        "name": "Art",
+        "head": "anzeal"
+    },
+    {
+        "id": "music",
+        "name": "Music",
+        "head": "admiralensin"
+    },
+    {
+        "id": "marketing",
+        "name": "Marketing",
+        "head": "anzeal"
+    },
+    {
+        "id": "Translation",
+        "name": "Translation",
+        "head": "anzeal"
+    },
+    {
+        "id": "recruitment",
+        "name": "Recruitment",
+        "head": "admiralensin"
+    },
+    {
+        "id": "writing",
+        "name": "Writing",
+        "head": "firearchers"
+    },
+    {
+        "id": "game-design",
+        "name": "Game Design",
+        "head": "lukas"
+    }
+]

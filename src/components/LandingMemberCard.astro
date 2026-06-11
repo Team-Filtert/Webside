@@ -1,0 +1,16 @@
+---
+import MemberCard from "./common/MemberCard.astro";
+
+interface Props {
+    name: string;
+    description: string;
+    img: string;
+}
+
+const { name, description, img } = Astro.props;
+---
+
+<MemberCard customClass="b-card" imgSrc={img}>
+    <a slot="name">{name}</a>
+    <a slot="description">{description}</a>
+</MemberCard>
