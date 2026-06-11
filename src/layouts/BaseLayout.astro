@@ -1,0 +1,32 @@
+---
+import '../styles/style.css';
+import '../styles/stars.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <link rel="icon" href="/img/icon.png" />
+        <title>Neuro-sama: The Good, The Evil And The Filtered</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;500;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <script src="../scripts/main.ts" />
+    </head>
+
+    <body>
+        <div id="stars" />
+        <Navbar />
+        <slot />
+        <Footer />
+    </body>
+</html>
