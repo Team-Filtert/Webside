@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import '../styles/updates.css'
 ---
 
 <BaseLayout>
@@ -11,7 +12,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <p id="typing"></p>
 
     <div class="link-btns">
-      <a href="updates.html">
+      <a href="/updates">
         <div class="btn">
           <span>Patch Notes</span>
         </div>
@@ -28,7 +29,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </a>
 
-      <a href="contact.html">
+      <a href="/contact">
         <div class="btn">
           <span>Contact us</span>
         </div>
@@ -37,7 +38,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </header>
 
   <section>
-    <h2><a href="about.html">About the game</a></h2>
+    <h2><a href="/about">About the game</a></h2>
     <p>
       Neuro-sama: The Good, The Evil, And The Filtered is a JRPG in which Neuro
       and Evil are sent on an adventure through seven different worlds. Along
@@ -46,7 +47,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       and have to be brought back to normal.
     </p>
     <br />
-    <a href="about.html" class="other_page">Learn more...</a>
+    <a href="/about" class="other_page">Learn more...</a>
   </section>
 
   <section>
@@ -69,7 +70,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <section>
-    <h2><a href="./team.html">The Team</a></h2>
+    <h2><a href="./team">The Team</a></h2>
     <p>
       We are Team Filtered, a group of Neuro fan and other artists, that formed
       to bring the idea of this game to life.
@@ -124,7 +125,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <section>
-    <h2><a href="updates.html">Dev logs</a></h2>
+    <h2><a href="/updates">Dev logs</a></h2>
     <p>
       We are going to regualy/semi regualy make dev log or whenever there is a
       big update.
@@ -133,6 +134,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <div class="patch" id="posts-container-latest"></div>
     <br />
-    <a href="updates.html" class="other_page">See other posts</a>
+    <a href="/updates" class="other_page">See other posts</a>
   </section>
+  <script src="../scripts/updates.ts"></script>
 </BaseLayout>

@@ -1,0 +1,17 @@
+---
+interface Props {
+    customClass: string;
+    imgSrc: string;
+}
+
+const { customClass, imgSrc } = Astro.props;
+---
+
+<div class={customClass}>
+    <img src={imgSrc} />
+
+    <h3><slot name="name" /></h3>
+    <p><slot name="description" /></p>
+
+    <slot />
+</div>

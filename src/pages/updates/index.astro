@@ -1,8 +1,13 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = await getCollection('updates', ({ data }) => {
+  return import.meta.env.PROD ? data.published.draft !== true : true;
+})
 ---
 
-<BaseLayout scripts={['../scripts/updates.ts']}>
+<BaseLayout>
   <header class="updates">
     <div class="inner">
       <h1 class="update-h">Updates</h1>
@@ -17,4 +22,5 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <h2 class="update-h">Other</h2>
     <div id="posts-container"></div>
   </main>
+  <script src="../../scripts/updates.ts"></script>
 </BaseLayout>
