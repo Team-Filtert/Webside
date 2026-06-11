@@ -143,95 +143,9 @@ class TeamCards {
   }
 }
 
-// ── Styles ────────────────────────────────────────────────────────────────────
-
-function injectStyles(): void {
-  if (document.getElementById("tc-styles")) return;
-
-  const style = document.createElement("style");
-  style.id = "tc-styles";
-  style.textContent = `
-    /* ── Card base ── */
-    .tc-card {
-      cursor: pointer;
-      overflow: hidden;
-      /* Animate both width and height changes */
-      transition:
-        max-width  0.4s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.25s ease;
-    }
-    .tc-card:hover:not(.tc-expanded) {
-      /* keep your existing :hover scale — no override needed */
-    }
-    .tc-card.tc-expanded {
-      /* Grow the card sideways — tweak this value to taste */
-      max-width: 32rem !important;
-      cursor: default;
-      transform: none !important;   /* disable scale-on-hover */
-    }
-
-    /* ── Card header ── */
-    /* Collapsed: img stacks above name/role (original look) */
-    .tc-card-header {
-      cursor: pointer;
-      /* No flex here — block flow keeps the original stacked layout */
-    }
-    .tc-titles {
-      /* Nothing special when collapsed */
-    }
-
-    /* Expanded: img sits beside name + role */
-    .tc-expanded .tc-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      transition: 0.3s;
-    }
-    .tc-expanded .tc-card-header img {
-      flex-shrink: 0;
-      width: 5rem;
-      height: 5rem;
-      transition:
-          width 0.3s 5rem,
-          height 0.3s 5rem;
-      /* size is already set by your .card img rule */
-    }
-    .tc-expanded .tc-titles h3 {
-      margin: 0 0 0.2rem;
-      font-size: 1.3rem;
-      transition: 0.3s;
-    }
-    .tc-expanded .tc-titles p {
-      margin: 0;
-      font-size: .9rem;
-      opacity: 0.7;
-      transition: 0.3s;
-    }
-
-    /* ── Bio panel — slides down ── */
-    .tc-bio-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .tc-bio-inner {
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      line-height: 1.7;
-      font-size: 0.9rem;
-    }
-    .tc-loading {
-      opacity: 0.5;
-      font-style: italic;
-    }
-  `;
-  document.head.appendChild(style);
-}
-
 // ── Public init ───────────────────────────────────────────────────────────────
 
 export function initTeamCards(selector: string = ".card"): TeamCards {
-  injectStyles();
   const tc = new TeamCards();
   tc.register(selector);
   return tc;

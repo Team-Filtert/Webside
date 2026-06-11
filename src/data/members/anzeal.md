@@ -1,6 +1,8 @@
 ---
 name: Anzeal
 description: Art, Marketing & Translation Departments head
+image: /img/the_team/Anzeal.jpg
+departments: [art, marketing, translation]
 ---
 
 Hi I'm Anzeal the Head of team filtered Art, Marketing and Translation department , I'm mainly here to make sure that artist stays organized and doing the work needed for the project while also making sure that they don't get overworked or stressed , I'm also an artist and I usually make promotional poster for the fan game.

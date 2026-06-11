@@ -38,5 +38,10 @@
         "id": "game-design",
         "name": "Game Design",
         "head": "lukas"
+    },
+    {
+        "id": "_team-filtered",
+        "name": "Team Filtered",
+        "head": "wolfy"
     }
 ]

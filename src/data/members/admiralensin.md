@@ -1,6 +1,8 @@
 ---
 name: AdmiralEnsin
 description: Audio & Recruitment Department head
+image: /img/the_team/AdmiralEnsin.png
+departments: [music, recruitment]
 ---
 
 Hi, I'm AdmiralEnsin, the head of the Music/Sound and Recruitment departments here at Team Filtered. While my availability has fluctuated in the past, I do my best to make sure that needed roles are filled and to organize the rest of the musicians to keep things going relatively smoothly.

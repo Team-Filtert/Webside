@@ -1,17 +1,19 @@
 ---
-import MemberCard from './common/MemberCard.astro';
+import MemberCard from "./common/MemberCard.astro";
 
 interface Props {
-    name: string;
-    description: string;
-    img: string;
+  name: string;
+  description: string;
+  img?: string;
 }
 
 const { name, description, img } = Astro.props;
 ---
 
-<MemberCard customClass="card" imgSrc={img}>
-    <a slot="name">{name}</a>
-    <a slot="description">{description}</a>
-    <div class="bio"><slot /></div>
+<MemberCard customClass="card tc-card" imgSrc={img}>
+  <Fragment slot="name">{name}</Fragment>
+  <Fragment slot="description">{description}</Fragment>
+  <div class="bio">
+    <slot />
+  </div>
 </MemberCard>

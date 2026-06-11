@@ -1,5 +1,26 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import TeamMemberCard from "../../components/TeamMemberCard.astro";
+import { getCollection, getEntries, render } from "astro:content";
+
+const heads = await getCollection("departments").then(async (h) => {
+  const headObjects = h.map((m) => m.data.head);
+  const memberData = await getEntries(headObjects);
+  return memberData;
+});
+
+// Render bio content for each head
+const headsWithBios = await Promise.all(
+  heads.map(async (h) => {
+    const rendered = await render(h);
+    return {
+      data: h.data,
+      rendered: rendered,
+    };
+  }),
+);
+
+const headIDs = heads.map((h) => h.id);
 ---
 
 <BaseLayout>
@@ -13,48 +34,17 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <section>
     <h3>Meet the Team leaders</h3>
     <div class="characters">
-      <div class="card" data-bio="/members/wolfy.html">
-        <img src="/img/the_team/Wolfy.png" />
-
-        <h3>Wolfy</h3>
-
-        <p>Creative Director</p>
-      </div>
-
-      <div class="card" data-bio="/members/anzeal.html">
-        <img src="/img/the_team/Anzeal.jpg" />
-
-        <h3>Anzeal</h3>
-        <p>Head of the Art, Marketing, and Translation Departments</p>
-      </div>
-
-      <div class="card" data-bio="/members/fire.html">
-        <img src="/img/the_team/Firearchers.png" />
-
-        <h3>Firearchers</h3>
-        <p>Head of the Writing Department</p>
-      </div>
-
-      <div class="card" data-bio="/members/admiral.html">
-        <img src="/img/the_team/AdmiralEnsin.png" />
-
-        <h3>AdmiralEnsin</h3>
-        <p>Head of the Audio and Recruitment Department</p>
-      </div>
-
-      <div class="card" data-bio="/members/lokt.html">
-        <img src="/img/the_team/Lokt.png" />
-
-        <h3>Lokt</h3>
-        <p>Lead Developer</p>
-      </div>
-
-      <div class="card" data-bio="/members/lukas.html">
-        <img src="/img/the_team/LukasDerBaum.svg" />
-
-        <h3>Lukas Der Baum</h3>
-        <p>Lead Game Designer</p>
-      </div>
+      {
+        headsWithBios.map((h) => {
+          return <TeamMemberCard
+            name={h.data.name}
+            description={h.data.description}
+            img={h.data.image}
+          >
+            <h.rendered.Content />
+          </TeamMemberCard>
+        })
+      }
     </div>
   </section>
   <section>
