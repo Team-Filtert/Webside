@@ -5,10 +5,12 @@ import "../styles/updates.css"
 import { getEntries } from "astro:content";
 
 const posts = await getCollection('updates', ({ data }) => {
-  return import.meta.env.PROD ? data.published.draft !== true : true;
+  return import.meta.env.PROD ? data.published !== "draft" : true;
 })
-posts.sort((a, b) => b.data.published.on.valueOf() - a.data.published.on.valueOf());
-const latestPost = posts[0];
+
+const publishedPosts = posts.filter((p) => p.data.published !== 'draft');
+publishedPosts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as Date).valueOf());
+const latestPost = publishedPosts[0];
 ---
 
 <div class="patch">
@@ -18,7 +20,7 @@ const latestPost = posts[0];
                 <div class="card-base">
                     <div class="card-meta">
                         <div class="card-date-author">
-                            <time class="card-time">{latestPost.data.published.on.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+                            <time class="card-time">{(latestPost.data.published as Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
                             by
                             <div class="card-author">{getEntries(latestPost.data.author).then((a) => {
                                 const authorNames: string[] = [];

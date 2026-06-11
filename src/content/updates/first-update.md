@@ -2,8 +2,7 @@
 title: "Devlog #1:We have a website"
 summary: Our first devlog post and demonstration / introduction of the website.
 author: [lukas, ktrain]
-published: 
-    on: 2026-05-22
+published: 2026-05-22
 ---
 
 

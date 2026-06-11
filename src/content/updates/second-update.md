@@ -1,8 +1,7 @@
 ---
 title: Second update
 author: [ktrain]
-published:
-  draft: true
+published: draft
 ---
 
 Really soon after the website was launched initially, I was asked to help expand the website in the following ways:

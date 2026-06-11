@@ -5,9 +5,10 @@ import "../../styles/updates.css"
 import { getEntries } from "astro:content";
 
 const posts = await getCollection('updates', ({ data }) => {
-  return import.meta.env.PROD ? data.published.draft !== true : true;
+  return import.meta.env.PROD ? data.published !== 'draft' : true;
 })
-posts.sort((a, b) => b.data.published.on.valueOf() - a.data.published.on.valueOf());
+const publishedPosts = posts.filter((p) => p.data.published !== 'draft');
+publishedPosts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as Date).valueOf());
 
 ---
 
@@ -16,19 +17,19 @@ posts.sort((a, b) => b.data.published.on.valueOf() - a.data.published.on.valueOf
         <div class="inner">
             <h1 class="update-h">Updates</h1>
             <p class="tagline">Here you can find all our devlogs</p>
-            <span class="post-count">{posts.length} Devlogs</span>
+            <span class="post-count">{publishedPosts.length} Devlogs</span>
         </div>
     </header>
 
   <main>
     <div>
-        {posts.map(entry => (
+        {publishedPosts.map(entry => (
             <article class="post-card">
                 <a href={`/updates/${entry.id}`} class="card-link">
                     <div class="card-base">
                         <div class="card-meta">
                             <div class="card-date-author">
-                                <time class="card-time">{entry.data.published.on.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+                                <time class="card-time">{(entry.data.published as Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
                                 by
                                 <div class="card-author">{getEntries(entry.data.author).then((a) => {
                                     const authorNames: string[] = [];
