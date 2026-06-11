@@ -2,18 +2,40 @@
 import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import type { GetStaticPaths } from "astro";
+import { getEntries } from "astro:content";
 
 export const getStaticPaths = (async () => {
-    const collection = await getCollection('updates');
-    return collection.map((v) => ({ params: { post: v.id }}));
+  const collection = await getCollection("updates");
+  return collection.map((v) => ({ params: { post: v.id } }));
 }) satisfies GetStaticPaths;
 
 const { post } = Astro.params;
 
-const update = await getEntry('updates', post)!;
+const update = await getEntry("updates", post)!;
+
+const authors = await getEntries(update.data.author).then((a) => {
+    const authorNames: string[] = [];
+    for (const author of a) {
+        authorNames.push(author.data.name)
+    }
+    return authorNames;
+});
 const C = await render(update);
 ---
 
 <BaseLayout>
-    
+  <header class="post-header">
+    <div class="post-title"><h1>{update.data.title}</h1></div>
+    <div class="post-meta">
+      <div class="post-date">{update.data.published.on}</div>
+      | 
+      Authors: <div class="post-author">{authors.join(', ')}</div>
+    </div>
+    <br />
+    {update.data.summary ? <div class="post-summary">{update.data.summary}</div> : undefined}
+  </header>
+
+  <article class="post-body">
+    <C.Content />
+  </article>
 </BaseLayout>
