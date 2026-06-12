@@ -28,7 +28,7 @@ const C = await render(update);
   <header class="post-header">
     <div class="post-title"><h1>{update.data.title}</h1></div>
     <div class="post-meta">
-      <div class="post-date">{(update.data.published as Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+      <div class="post-date">{update.data.published == 'draft' ? 'Draft' : (update.data.published as Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
       Authors: <div class="post-author">{authors.join(', ')}</div>
     </div>
     <br />

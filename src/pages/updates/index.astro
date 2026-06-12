@@ -3,12 +3,12 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/updates.css"
 import { getEntries } from "astro:content";
+import UpdateCard from "../../components/UpdateCard.astro";
 
 const posts = await getCollection('updates', ({ data }) => {
   return import.meta.env.PROD ? data.published !== 'draft' : true;
 })
-const publishedPosts = posts.filter((p) => p.data.published !== 'draft');
-publishedPosts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as Date).valueOf());
+posts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as Date).valueOf());
 
 ---
 
@@ -17,37 +17,14 @@ publishedPosts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.pub
         <div class="inner">
             <h1 class="update-h">Updates</h1>
             <p class="tagline">Here you can find all our devlogs</p>
-            <span class="post-count">{publishedPosts.length} Devlogs</span>
+            <span class="post-count">{posts.length} Devlogs</span>
         </div>
     </header>
 
   <main>
     <div>
-        {publishedPosts.map(entry => (
-            <article class="post-card">
-                <a href={`/updates/${entry.id}`} class="card-link">
-                    <div class="card-base">
-                        <div class="card-meta">
-                            <div class="card-date-author">
-                                <time class="card-time">{(entry.data.published as Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
-                                by
-                                <div class="card-author">{getEntries(entry.data.author).then((a) => {
-                                    const authorNames: string[] = [];
-                                    for (const author of a) {
-                                        authorNames.push(author.data.name)
-                                    }
-                                    return authorNames;
-                                }).then((a) => a.join(', '))}</div>
-                            </div>
-                            <h2 class="card-title">{entry.data.title}</h2>
-                            <p class="card-summary">{entry.data.summary}</p>
-                            <span class="card-cta">
-                                Read Devlog <span class="card-arrow">→</span>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-            </article>
+        {posts.map(entry => (
+            <UpdateCard id={entry.id} title={entry.data.title} date={entry.data.published} summary={entry.data.summary} author={entry.data.author} />
         ))}
     </div>
   </main>
