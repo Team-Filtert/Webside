@@ -1,26 +1,31 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/updates.css"
+import { getEntries } from "astro:content";
+import UpdateCard from "../../components/UpdateCard.astro";
 
 const posts = await getCollection('updates', ({ data }) => {
-  return import.meta.env.PROD ? data.published.draft !== true : true;
+  return import.meta.env.PROD ? data.published !== 'draft' : true;
 })
+posts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as Date).valueOf());
+
 ---
 
 <BaseLayout>
-  <header class="updates">
-    <div class="inner">
-      <h1 class="update-h">Updates</h1>
-      <p class="tagline">Here you can find all our devlogs</p>
-      <span class="post-count">0 Devlogs</span>
-    </div>
-  </header>
+    <header class="updates">
+        <div class="inner">
+            <h1 class="update-h">Updates</h1>
+            <p class="tagline">Here you can find all our devlogs</p>
+            <span class="post-count">{posts.length} Devlogs</span>
+        </div>
+    </header>
 
   <main>
-    <h2 class="update-h">Latest</h2>
-    <div id="posts-container-latest"></div>
-    <h2 class="update-h">Other</h2>
-    <div id="posts-container"></div>
+    <div>
+        {posts.map(entry => (
+            <UpdateCard id={entry.id} title={entry.data.title} date={entry.data.published} summary={entry.data.summary} author={entry.data.author} />
+        ))}
+    </div>
   </main>
-  <script src="../../scripts/updates.ts"></script>
 </BaseLayout>

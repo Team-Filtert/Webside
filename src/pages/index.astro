@@ -1,6 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import UpdateCard from "../components/UpdateCard.astro";
+
 import '../styles/updates.css'
+
+import { getCollection } from "astro:content";
+
+
+const posts = await getCollection('updates', ({ data }) => {
+  return import.meta.env.PROD ? data.published !== 'draft' : true;
+})
+const publishedPosts = posts.filter((p) => p.data.published !== 'draft');
+publishedPosts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as Date).valueOf());
+const latestPost = publishedPosts[0];
 ---
 
 <BaseLayout>
@@ -131,10 +143,11 @@ import '../styles/updates.css'
       big update.
     </p>
     <h2>Latest Update</h2>
-
-    <div class="patch" id="posts-container-latest"></div>
+    <div class="patch">
+        <UpdateCard id={latestPost.id} title={latestPost.data.title} date={latestPost.data.published} summary={latestPost.data.summary} author={latestPost.data.author} />
+    </div>
     <br />
     <a href="/updates" class="other_page">See other posts</a>
   </section>
-  <script src="../scripts/updates.ts"></script>
+  <!-- <script src="../scripts/updates.ts"></script> -->
 </BaseLayout>

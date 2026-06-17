@@ -2,11 +2,8 @@
 title: "Devlog #1:We have a website"
 summary: Our first devlog post and demonstration / introduction of the website.
 author: [lukas, ktrain]
-published: 
-    on: 22 May 2026
+published: 2026-05-22
 ---
-
-(The majority of this update was written by Lukas.)
 
 ## The beginning
 
@@ -31,3 +28,5 @@ Anyways, after finishing the first version, I had to go away for a few days duri
 ### Note
 
 I hope you enjoy the website and the game! and maybe see you in the discord server or on the next update. Tschüss.
+
+(The majority of this update was written by Lukas.)
