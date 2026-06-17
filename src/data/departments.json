@@ -15,19 +15,9 @@
         "head": "admiralensin"
     },
     {
-        "id": "marketing",
-        "name": "Marketing",
-        "head": "anzeal"
-    },
-    {
         "id": "Translation",
         "name": "Translation",
-        "head": "anzeal"
-    },
-    {
-        "id": "recruitment",
-        "name": "Recruitment",
-        "head": "admiralensin"
+        "head": "none"
     },
     {
         "id": "writing",

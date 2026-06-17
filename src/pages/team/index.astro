@@ -3,15 +3,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import TeamMemberCard from "../../components/TeamMemberCard.astro";
 import { getCollection, getEntries, render } from "astro:content";
 
-const heads = await getCollection("departments").then(async (h) => {
+const heads = await getCollection("departments").then(async(h) => {
   const headObjects = h.map((m) => m.data.head);
   const memberData = await getEntries(headObjects);
   return memberData;
 });
 
+
+// console.log(heads)
+
 // Render bio content for each head
 const headsWithBios = await Promise.all(
-  heads.map(async (h) => {
+  heads.map(async h => {
+    console.log(h)
     const rendered = await render(h);
     return {
       data: h.data,
