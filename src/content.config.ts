@@ -9,7 +9,7 @@ export const collections = {
             name: z.string(),
             description: z.string(),
             image: z.string().optional(),
-            departments: z.array(reference('departments')).min(1),
+            departments: z.array(reference('departments')).min(0),
         }),
     }),
     departments: defineCollection({
