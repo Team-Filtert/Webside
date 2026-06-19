@@ -3,6 +3,7 @@ name: Bora
 description: Musician
 image: /img/the_team/bora.jpg
 departments: [music, translation]
+language: Turkish
 ---
 
 Hi, I'm Bora.
