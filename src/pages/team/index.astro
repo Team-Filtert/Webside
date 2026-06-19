@@ -34,10 +34,9 @@ for (const m of the_team) {
 
 
 
-function getBios(members) {
+function getBios(members: any) {
   return Promise.all(
-    members.map(async h => {
-      // console.log(h)
+    members.map(async (h: any) => {
       const rendered = await render(h);
       return {
         data: h.data,
@@ -47,8 +46,6 @@ function getBios(members) {
   );
 }
 
-console.log(heads)
-console.log(artists)
 
 // Render bio content for each head
 const headsWithBios = await getBios(heads);
