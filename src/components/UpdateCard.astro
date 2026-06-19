@@ -1,6 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import type { InferEntrySchema } from "astro:content";
 import "../styles/updates.css"
 import { getEntries } from "astro:content";
 
@@ -8,8 +7,8 @@ interface Props {
   id: any;
   title: string;
   date: Date | string;
-  summary: string;
-  author: any;
+  summary?: string;
+  author: InferEntrySchema<'updates'>['author'];
 }
 
 const { id, title, date, summary, author } = Astro.props;
@@ -31,7 +30,7 @@ const { id, title, date, summary, author } = Astro.props;
                           }).then((a) => a.join(', '))}</div>
                     </div>
                     <h2 class="card-title">{title}</h2>
-                    <p class="card-summary">{summary}</p>
+                    <p class="card-summary">{summary ? summary : 'No summary available.'}</p>
                     <span class="card-cta">
                         Read Devlog <span class="card-arrow">→</span>
                     </span>

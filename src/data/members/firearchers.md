@@ -1,6 +1,6 @@
 ---
-name: Fire
-description: Writing Department head
+name: Firearchers
+description: Head of Writing Department and Email Manager
 image: /img/the_team/Firearchers.png
 departments: [writing]
 ---

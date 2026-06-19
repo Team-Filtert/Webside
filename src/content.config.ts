@@ -1,6 +1,6 @@
 import { defineCollection, reference } from "astro:content";
 import { glob, file } from "astro/loaders";
-import { z } from 'astro/zod';
+import { string, z } from 'astro/zod';
 
 export const collections = {
     members: defineCollection({
@@ -9,14 +9,15 @@ export const collections = {
             name: z.string(),
             description: z.string(),
             image: z.string().optional(),
-            departments: z.array(reference('departments')).min(1),
+            departments: z.array(z.string()).min(0),
+            language: z.string().optional(),
         }),
     }),
     departments: defineCollection({
         loader: file('./src/data/departments.json'),
         schema: z.object({
             name: z.string(),
-            head: reference('members'),
+            head: reference('members').optional(),
         }),
     }),
     updates: defineCollection({
