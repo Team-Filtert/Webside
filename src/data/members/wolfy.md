@@ -1,6 +1,6 @@
 ---
 name: CountWolfy
-description: Team Filtered Director
+description: Founder and creative Director of Team Filtered
 image: /img/the_team/Wolfy.png
 departments: [_team-filtered]
 ---

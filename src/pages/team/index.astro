@@ -1,30 +1,65 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TeamMemberCard from "../../components/TeamMemberCard.astro";
-import { getCollection, getEntries, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 
-const heads = await getCollection("departments").then(async(h) => {
-  const headObjects = h.map((m) => m.data.head);
-  const memberData = await getEntries(headObjects);
-  return memberData;
-});
+const departments = await getCollection("departments");
+const the_team = await getCollection("members");
+
+let heads = [];
+let musicians = [];
+let game_desingers = [];
+let artists = [];
+let writers = [];
+let programmers = [];
+let translators = [];
+
+for (const d of departments) {
+  if (!d.data.head) continue;
+  const head_obj = d.data.head;
+  const head_data = await getEntry(head_obj);
+  heads.push(head_data);
+}
+
+for (const m of the_team) {
+  // if (!m.data.departments) continue;
+  if (m.data.departments.includes("music")) musicians.push(m);
+  if (m.data.departments.includes("game-design")) game_desingers.push(m);
+  if (m.data.departments.includes("art")) artists.push(m);
+  if (m.data.departments.includes("writing")) writers.push(m);
+  if (m.data.departments.includes("programming")) programmers.push(m);
+  if (m.data.departments.includes("translation")) translators.push(m);
+}
 
 
-// console.log(heads)
+
+
+function getBios(members) {
+  return Promise.all(
+    members.map(async h => {
+      // console.log(h)
+      const rendered = await render(h);
+      return {
+        data: h.data,
+        rendered: rendered,
+      };
+    }),
+  );
+}
+
+console.log(heads)
+console.log(artists)
 
 // Render bio content for each head
-const headsWithBios = await Promise.all(
-  heads.map(async h => {
-    console.log(h)
-    const rendered = await render(h);
-    return {
-      data: h.data,
-      rendered: rendered,
-    };
-  }),
-);
+const headsWithBios = await getBios(heads);
 
-const headIDs = heads.map((h) => h.id);
+const musiciansWithBios = await getBios(musicians);
+const game_desingersWithBios = await getBios(game_desingers);
+const artistsWithBios = await getBios(artists);
+const writersWithBios = await getBios(writers);
+const programmersWithBios = await getBios(programmers);
+const translatorsWithBios = await getBios(translators);
+
 ---
 
 <BaseLayout>
@@ -34,9 +69,14 @@ const headIDs = heads.map((h) => h.id);
       We are Team Filtered, a group of Neuro fan and other artists, that formed
       to bring the idea of this game to life.
     </p>
+    <p>
+        Here you can learn more about the team and their roles.
+        <br />
+        They are sorted by departments but not necessarily by role.
+    </p>
   </header>
   <section>
-    <h3>Meet the Team leaders</h3>
+    <h2>Meet the Team leaders</h2>
     <div class="characters">
       {
         headsWithBios.map((h) => {
@@ -52,105 +92,100 @@ const headIDs = heads.map((h) => h.id);
     </div>
   </section>
   <section>
-    <h3>Meet the Art Department</h3>
+    <h2>Meet the Art Department</h2>
     <div class="characters">
-      <div class="card" data-bio="/members/riko.html">
-        <img src="/img/the_team/Riko.png" />
-
-        <h3>Riko</h3>
-        <p>Vice Head of the Art Department</p>
-      </div>
-
-      <div class="card" data-bio="/members/mak.html">
-        <img src="/img/the_team/Mak-Blast.png" />
-
-        <h3>Mak-Blast</h3>
-        <p>Artist</p>
-      </div>
-
-      <div class="card">
-        <img src="/img/the_team/Ollie.png" />
-
-        <h3>Ollie</h3>
-        <p>Artist</p>
-      </div>
-      <div class="card" data-bio="/members/EJ.html">
-        <img src="/img/the_team/EJ.webp" />
-
-        <h3>EJ</h3>
-        <p>Artist</p>
-      </div>
-      <div class="card">
-        <img src="/img/the_team/G_pfp.jpg" />
-
-        <h3>G</h3>
-        <p>Artist</p>
-      </div>
+        {
+          artistsWithBios.map((h) => {
+            return <TeamMemberCard
+              name={h.data.name}
+              description={h.data.description}
+              img={h.data.image}
+            >
+              <h.rendered.Content />
+            </TeamMemberCard>
+          })
+        }
     </div>
   </section>
   <section>
-    <h3>Meet the Audio/Music Department</h3>
+    <h2>Meet the Audio/Music Department</h2>
     <div class="characters">
-      <div class="card" data-bio="/members/bora.html">
-        <img src="/img/the_team/bora.jpg" />
-
-        <h3>Bora</h3>
-        <p>Musician</p>
-      </div>
-      <div class="card" data-bio="/members/nathan.html">
-        <img src="/img/the_team/nathan.png" />
-
-        <h3>Nathan</h3>
-        <p>Musician</p>
-      </div>
-      <div class="card" data-bio="/members/chxi.html">
-        <img src="/img/the_team/chxi.jpg" />
-
-        <h3>CHXI</h3>
-        <p>Musician</p>
-      </div>
+        {
+          musiciansWithBios.map((h) => {
+            return <TeamMemberCard
+              name={h.data.name}
+              description={h.data.description}
+              img={h.data.image}
+            >
+              <h.rendered.Content />
+            </TeamMemberCard>
+          })
+        }
     </div>
   </section>
   <section>
-    <h3>Meet the writing Department</h3>
+    <h2>Meet the Writing Department</h2>
     <div class="characters">
-      <div class="card" data-bio="/members/skele.html">
-        <img src="/img/the_team/Skele.png" />
-
-        <h3>SkeledirgeT-Rex</h3>
-        <p>Assistant Writing Head and Nere Expert</p>
-      </div>
-      <div class="card" data-bio="/members/wedal.html">
-        <img src="/img/the_team/Wedal.png" />
-
-        <h3>Wedal987</h3>
-        <p>Assistant Writing Head</p>
-      </div>
-
-      <div class="card" data-bio="">
-        <img src="/img/the_team/onyx.png" />
-
-        <h3>Onyx</h3>
-        <p>Writer</p>
-      </div>
+        {
+          writersWithBios.map((h) => {
+            return <TeamMemberCard
+              name={h.data.name}
+              description={h.data.description}
+              img={h.data.image}
+            >
+              <h.rendered.Content />
+            </TeamMemberCard>
+          })
+        }
     </div>
   </section>
   <section>
-    <h3>Meet the Programming Department and the Game Design Department</h3>
+    <h2>Meet the Game Design Department</h2>
     <div class="characters">
-      <div class="card" data-bio="/members/ktrain.html">
-        <img src="/img/the_team/KTrain.png" />
-
-        <h3>KTrain</h3>
-        <p>Website maintainer, tooling "maintainer", and game dev</p>
-      </div>
-
-      <div class="card" data-bio="/members/komi.html">
-        <img src="/img/the_team/Komi.png" />
-
-        <h3>Komikron</h3>
-        <p>Senior Developer and Game Designer</p>
-      </div>
+        {
+          game_desingersWithBios.map((h) => {
+            return <TeamMemberCard
+              name={h.data.name}
+              description={h.data.description}
+              img={h.data.image}
+            >
+              <h.rendered.Content />
+            </TeamMemberCard>
+          })
+        }
+    </div>
+  </section>
+  <section>
+    <h2>Meet the Programming Department</h2>
+    <div class="characters">
+        {
+          programmersWithBios.map((h) => {
+            return <TeamMemberCard
+              name={h.data.name}
+              description={h.data.description}
+              img={h.data.image}
+            >
+              <h.rendered.Content />
+            </TeamMemberCard>
+          })
+        }
+    </div>
+  </section>
+  <section>
+    <h2>Meet the Translation Department</h2>
+    <div class="characters">
+        {
+          translatorsWithBios.map((h) => {
+            return <TeamMemberCard
+              name={h.data.name}
+              description={h.data.description}
+              img={h.data.image}
+              language={"Language: " + h.data.language}
+            >
+              <h.rendered.Content />
+            </TeamMemberCard>
+          })
+        }
     </div>
   </section>
   <script src="../../scripts/team.ts" />

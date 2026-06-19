@@ -1,8 +1,9 @@
 ---
 name: Lukas
-description: Game Design Department head
+description: Lead Game Designer and Head of Game Design Department
 image: /img/the_team/LukasDerBaum.svg
-departments: [game-design]
+departments: [game-design, programming, writing, translation]
+language: German
 ---
 
 Hi, I'm Lukas DerBaum the lead game designer, here at team filtered. I'm also the one who made this website. My job is to turn Wolfy's ideas into actual game mechanics, making the game worlds come to life and making sure that the game is actually fun and engaging.

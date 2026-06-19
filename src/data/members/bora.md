@@ -2,7 +2,7 @@
 name: Bora
 description: Musician
 image: /img/the_team/bora.jpg
-departments: [music]
+departments: [music, translation]
 ---
 
 Hi, I'm Bora.

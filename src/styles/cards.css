@@ -54,7 +54,7 @@
 
 /* expanded */
 .card[aria-expanded="true"] {
-  max-width: 32rem;
+  max-width: 42rem;
   cursor: default;
   transform: none;
   transition: 0.3s;

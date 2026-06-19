@@ -15,9 +15,8 @@
         "head": "admiralensin"
     },
     {
-        "id": "Translation",
-        "name": "Translation",
-        "head": "none"
+        "id": "translation",
+        "name": "Translation"
     },
     {
         "id": "writing",

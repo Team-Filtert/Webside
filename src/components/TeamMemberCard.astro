@@ -6,14 +6,16 @@ interface Props {
     name: string;
     description: string;
     img?: string;
+    language?: string;
 }
 
-const { name, description, img } = Astro.props;
+const { name, description, img, language } = Astro.props;
 ---
 
 <MemberCard customClass="card" aria-expanded="false" imgSrc={img}>
     <Fragment slot="name">{name}</Fragment>
     <Fragment slot="description">{description}</Fragment>
+    {language && <Fragment slot="language">{language}</Fragment>}
     <div class="bio">
         <div class="bio-inner"></div>
         <slot />
