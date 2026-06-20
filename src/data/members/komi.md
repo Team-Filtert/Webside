@@ -1,6 +1,6 @@
 ---
 name: Komikron
-description: Developer and Vice Game Design Head
+description: Head of the programming department and game Designer
 image: /img/the_team/Komi.png
 departments: [programming,game-design]
 ---

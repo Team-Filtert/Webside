@@ -1,6 +1,6 @@
 ---
 name: lokt
-description: Head of Programming Department
+description: Programmer
 image: /img/the_team/Lokt.png
 departments: [programming]
 ---
