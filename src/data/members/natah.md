@@ -1,11 +1,9 @@
 ---
-name: Nathan
+name: Natah_DN
 description: Vice head of the audio/music department
 image: /img/the_team/nathan.png
 departments: [music]
 ---
-
-
  
 heyo! I'm Natah_DN, a DTM musician that got hooked onto an AI VTuber
 who also happens to be making music for this project revolving for
