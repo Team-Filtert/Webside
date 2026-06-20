@@ -1,5 +1,5 @@
 ---
-name: Natah_DN
+name: Nathan (Natah_DN)
 description: Vice head of the audio/music department
 image: /img/the_team/nathan.png
 departments: [music]
