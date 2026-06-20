@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/updates.css"
-import { getEntries } from "astro:content";
 import UpdateCard from "../../components/UpdateCard.astro";
 
 const posts = await getCollection('updates', ({ data }) => {

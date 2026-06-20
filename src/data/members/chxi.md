@@ -1,5 +1,5 @@
 ---
-name: Chxi
+name: CHXI
 description: Musician
 image: /img/the_team/chxi.jpg
 departments: [music]
