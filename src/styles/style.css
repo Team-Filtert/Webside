@@ -44,6 +44,20 @@ nav img:hover {
     transition: 0.3s;
 }
 
+footer {
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+footer div {
+    background: #10101880;
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+
+
 .hero {
     height: 80%;
     display: flex;
@@ -156,12 +170,14 @@ section {
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
 .gallery img {
+    max-width: 30rem;
+    max-height: 30rem;
     width: 100%;
     border: 3px solid white;
 }
