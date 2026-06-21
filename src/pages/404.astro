@@ -3,6 +3,12 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 ---
 
 <BaseLayout>
+    <script is:inline>
+        const { pathname } = window.location
+        if (pathname.endsWith('.html')) {
+            window.location.href = pathname.slice(0, pathname.length - 5)
+        }
+    </script>
     <header class="story">
         <h1>404 File Not Found</h1>
         <h2>The path seems to have been FILTERED.</h2>
@@ -10,10 +16,4 @@ import BaseLayout from "../layouts/BaseLayout.astro"
             Try re-navigating from our <a href="/">homepage</a>.
         </p>
     </header>
-    <script is:inline>
-        const { pathname } = window.location
-        if (pathname.endsWith('.html')) {
-            window.location.href = pathname.slice(0, pathname.length - 5)
-        }
-    </script>
 </BaseLayout>

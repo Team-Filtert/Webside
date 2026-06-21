@@ -1,0 +1,22 @@
+---
+
+interface Props {
+    customClass: string;
+    imgSrc?: string;
+}
+
+const { customClass, imgSrc } = Astro.props;
+---
+
+<div class={customClass}>
+    <header class="card-header">
+        {imgSrc ? <img src={imgSrc} /> : ''}
+        <div class="card-titles">
+            <h3><slot name="name" /></h3>
+            <p><slot name="description" /></p>
+            <p><slot name="language" /></p>
+        </div>
+    </header>
+
+    <slot />
+</div>

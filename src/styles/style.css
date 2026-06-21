@@ -29,7 +29,7 @@ nav a {
 }
 
 nav a:hover {
-    transform:translateY(-.1rem);
+    transform: translateY(-.1rem);
     text-decoration: underline;
     transition: 0.3s;
 }
@@ -171,55 +171,5 @@ section {
     gap: 2rem;
     flex-wrap: wrap;
     overflow: visible;
-}
-
-.card a {
-    color: var(--blue);
-    text-decoration: none;
-}
-
-.card a:hover {
-    text-decoration: underline;
-}
-
-
-.b_card,
-.card {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid white;
-    transition: 0.3s;
-    max-width: 15rem;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.b_card img,
-.card img {
-    width: 3rem;
-    height: 3rem;
-    object-fit: contain;
-    transition:
-        width 0.3s 3rem,
-        height 0.3s 3rem;
-}
-
-.card_h {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-}
-
-.card_h img {
-    flex-shrink: 0;
-    width: 4rem;
-    height: 4rem;
-}
-
-.other_page {
-    color: white;
-    transition: 0.3s;
 }
 
