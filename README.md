@@ -39,3 +39,6 @@ When adding web components, they must be placed in `public/components` (effectiv
     - If you can't write in JS/TS, write in whichever language you prefer, and ask another team member to convert it to TS for you.
     - Why? WASM takes a performance hit when you move in and out of the WASM layer, and downloading a binary just to run a couple things is very wasteful. Additionally, WASM does not have direct access to the browser DOM, so you're going to have to write JS/TS anyways.
 - Deployment is done with GitHub Actions onto GitHub Pages.
+
+#### Writing Guide
+  - Update / Devlogs should always have a Title that starts with "Devlog #x:", where x is the devlog number. Followed by a topic.
