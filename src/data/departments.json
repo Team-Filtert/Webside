@@ -1,36 +1,29 @@
 [
     {
         "id": "programming",
-        "name": "Programming",
         "head": "komi"
     },
     {
         "id": "art",
-        "name": "Art",
         "head": "anzeal"
     },
     {
         "id": "music",
-        "name": "Music",
         "head": "admiralensin"
     },
     {
-        "id": "translation",
-        "name": "Translation"
+        "id": "translation"
     },
     {
         "id": "writing",
-        "name": "Writing",
         "head": "firearchers"
     },
     {
         "id": "game-design",
-        "name": "Game Design",
         "head": "lukas"
     },
     {
         "id": "_team-filtered",
-        "name": "Team Filtered",
         "head": "wolfy"
     }
 ]

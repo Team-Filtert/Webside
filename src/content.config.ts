@@ -16,7 +16,7 @@ export const collections = {
     departments: defineCollection({
         loader: file('./src/data/departments.json'),
         schema: z.object({
-            name: z.string(),
+            // name: z.string(),
             head: reference('members').optional(),
         }),
     }),
