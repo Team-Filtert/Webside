@@ -1,5 +1,5 @@
 ---
-title: Second update
+title: "Devlog #2: Rewrite"
 summary: ...yeah we're already rewriting this
 author: [ktrain]
 published: 2026-06-20
