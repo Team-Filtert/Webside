@@ -5,12 +5,19 @@
     --text: white;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 100%;
     margin: 0;
     font-family: Inter;
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -42,6 +49,11 @@ nav img {
 nav img:hover {
     transform: scale(1.05);
     transition: 0.3s;
+}
+
+main {
+    flex: 1;
+    overflow: scroll;
 }
 
 footer {
@@ -166,10 +178,11 @@ button span {
 }
 
 section {
-    padding: 5rem;
+    padding: 2rem;
 }
 
 .gallery {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -178,6 +191,7 @@ section {
 .gallery img {
     max-width: 30rem;
     max-height: 30rem;
+    flex: 1;
     width: 100%;
     border: 3px solid white;
 }

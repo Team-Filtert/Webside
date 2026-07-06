@@ -20,11 +20,11 @@ posts.sort((a, b) => (b.data.published as Date).valueOf() - (a.data.published as
         </div>
     </header>
 
-  <main>
+  <section>
     <div>
         {posts.map(entry => (
             <UpdateCard id={entry.id} title={entry.data.title} date={entry.data.published} summary={entry.data.summary} author={entry.data.author} />
         ))}
     </div>
-  </main>
+  </section>
 </BaseLayout>
