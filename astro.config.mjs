@@ -10,7 +10,4 @@ export default defineConfig({
     include: ['/team'],
   })],
   site: 'https://team-filtered.org/',
-  experimental: {
-    rustCompiler: true
-  }
 });
