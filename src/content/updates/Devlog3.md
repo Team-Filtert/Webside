@@ -1,7 +1,7 @@
 ---
 title: "Devlog #3:State of the demo"
 summary: "An update on our progress towards releasing the demo (chapter 1)"
-author: [lukas,firearchers,wolfy]
+author: [lukas,firearchers,wolfy,gab]
 published: draft 
 ---
 
@@ -70,6 +70,23 @@ If you're an artist or a designer, you're welcome to join us and help us with th
 
 A new organizational system has been made to keep art flowing, as many things in the game are missing visuals to accompany them.
 
+
+### About the rewrite
+Hey, this is Gab, one of the programmers here at Team Filtered.
+
+I wanna start off by saying that I joined the project six-ish months ago knowing literally nothing about game development. Some would probably call me a crazy person for taking on something of this scope as my first game, and honestly, they might have a point. The swarm's collective dedication is just that contagious, what can I say.
+
+Anyways, we're currently in the middle of an architecture rework, which requires a lot of design and thinking before you actually write any code (found out the hard way). A lot of trial and error has been involved, as well as an unholy amount of research. I've personally spent dozens of hours reading forums, documentation, Discord servers, and even books (crazy, I know). I admit it's a bit frustrating at times, but I feel that I've learned a lot.
+
+Lately, my main focus has been on designing and testing the core systems of the game, more specifically, how we handle level switching and transition effects. Those two things as a pair were particularly painful to get right because of my flaky understanding of how coroutines work in Godot and because I kept getting my signals all tangled up. I think I've landed on something solid for the time being, so I'm happy about that.
+
+To be honest, this stage of development is a bit boring, so there aren't any interesting screenshots or game mechanics to show yet. But I believe that getting this right will allow us to start picking up the pace and actually focus on the fun stuff our (very creative) writing department has planned.
+
+That's all from me. Thanks for reading.
+
+Want to help us build this thing?
+
+We're always looking for new contributors. If you've got skills relevant to writing, game design, art, programming, or really anything you think might be useful (and tolerance for a bit of scuff), you can find us over on our [Discord](https://discord.gg/nAXzxMY9gT) and get involved.
 
 ## Chapter 1
 

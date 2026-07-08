@@ -24,11 +24,15 @@
 
 .b_card,
 .card {
-    padding: 2rem;
+    padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid white;
     transition: 0.3s;
     max-width: 15rem;
+}
+
+.card-header {
+    cursor: pointer;
 }
 
 
@@ -55,6 +59,7 @@
 /* expanded */
 .card[aria-expanded="true"] {
   max-width: 42rem;
+  padding: 2rem;
   cursor: default;
   transform: none;
   transition: 0.3s;

@@ -1,6 +1,6 @@
 ---
 name: SkeledirgeT-Rex
-description: Assistant Writing Head and Nere Exper
+description: Assistant Writing Head and Nere Expert
 image: /img/the_team/Skele.png
 departments: [writing,translation]
 language: French

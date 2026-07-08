@@ -2,7 +2,7 @@ const elements = document.querySelectorAll<HTMLElement>('.card');
 
 
 elements.forEach((card) => {
-  card?.addEventListener('click', () => {
+  card.children[0]?.addEventListener('click', () => {
     const isExpanded = card.getAttribute('aria-expanded') === 'true';
     card.setAttribute('aria-expanded', `${!isExpanded}`);
     elements.forEach((el) => {
