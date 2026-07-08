@@ -1,13 +1,21 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import "../../styles/updates.css"
-import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import "../../../styles/updates.css"
+import type { GetStaticPaths, GetStaticPathsResult } from "astro";
 import { getEntries } from "astro:content";
+import { languagePaths } from "../../../utils/languages";
 
 export const getStaticPaths = (async () => {
   const collection = await getCollection("updates");
-  return collection.map((v) => ({ params: { post: v.id } }));
+  const mappedCollections = collection.map((v) => {
+    return languagePaths.map(({ params: { lang } }) => ({ params: { lang, post: v.id } }))
+  });
+  const collectionsWithLang: GetStaticPathsResult = []
+  mappedCollections.map((p) => {
+    collectionsWithLang.push(...p)
+  })
+  return collectionsWithLang
 }) satisfies GetStaticPaths;
 
 const { post } = Astro.params;

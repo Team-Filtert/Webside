@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import "../../styles/updates.css"
-import UpdateCard from "../../components/UpdateCard.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import "../../../styles/updates.css"
+import UpdateCard from "../../../components/UpdateCard.astro";
 
 const posts = await getCollection('updates', ({ data }) => {
   return import.meta.env.PROD ? data.published !== 'draft' : true;

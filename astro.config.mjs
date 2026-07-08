@@ -9,5 +9,9 @@ export default defineConfig({
   integrations: [sitemap(), mdx(), scopedExternalLinks({
     include: ['/team'],
   })],
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en'
+  },
   site: 'https://team-filtered.org/',
 });

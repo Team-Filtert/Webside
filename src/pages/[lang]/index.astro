@@ -1,10 +1,16 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import UpdateCard from "../components/UpdateCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import UpdateCard from "../../components/UpdateCard.astro";
 
 import '../styles/updates.css'
 
 import { getCollection } from "astro:content";
+
+import { languagePaths } from '../../utils/languages';
+
+export function getStaticPaths() {
+    return languagePaths
+}
 
 
 const posts = await getCollection('updates', ({ data }) => {
