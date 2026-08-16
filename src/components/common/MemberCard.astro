@@ -3,12 +3,14 @@
 interface Props {
     customClass: string;
     imgSrc?: string;
+    id?: string;
 }
 
-const { customClass, imgSrc } = Astro.props;
+const { customClass, imgSrc, id } = Astro.props;
 ---
 
-<div class={customClass}>
+<div class={customClass} id={id}>
+    <!-- <div class="card-content"> -->
     <header class="card-header">
         {imgSrc ? <img src={imgSrc} /> : ''}
         <div class="card-titles">
@@ -19,4 +21,5 @@ const { customClass, imgSrc } = Astro.props;
     </header>
 
     <slot />
+    <!-- </div> -->
 </div>

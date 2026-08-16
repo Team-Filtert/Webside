@@ -22,8 +22,7 @@
         height 0.3s 4rem;
 }
 
-.b_card,
-.card {
+.b_card {
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid white;
@@ -31,8 +30,31 @@
     max-width: 15rem;
 }
 
+/*.card-h {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid white;
+}*/
+
+.card{
+    transition: 0.3s;
+    max-width: 15rem;
+    
+}
+
+.b_card {
+    color: white;
+    text-decoration: none;
+}
+
 .card-header {
     cursor: pointer;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid white;
+
+    height: 15rem;
+    max-height: 15rem;
 }
 
 
@@ -63,14 +85,20 @@
   cursor: default;
   transform: none;
   transition: 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid white;
 }
 
 
 .card[aria-expanded="true"] .card-header {
     display: flex;
+    height: 7rem;
     align-items: center;
     gap: 0.85rem;
     transition: 0.3s;
+    padding: 0rem;
+    border: none;
+    background: none;
 }
 
 .card[aria-expanded="true"] .card-header img {
