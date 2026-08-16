@@ -2,7 +2,7 @@
 title: "Devlog #4: Our First dev talk"
 summary: "We have YouTube, and our first dev talk"
 author: [lukas]
-published: 2026-08-15
+published: 2026-08-16
 ---
 ## Our First dev talk
 A few days ago, we had our first dev talk. In this dev talk,
