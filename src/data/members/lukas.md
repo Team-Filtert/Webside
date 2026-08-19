@@ -1,5 +1,5 @@
 ---
-name: Lukas
+name: LukasDerBaum
 description: Head of Game Design Department and website Maintainer
 image: /img/the_team/LukasDerBaum.svg
 departments: [game-design, programming, writing, translation]

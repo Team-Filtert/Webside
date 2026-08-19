@@ -60,17 +60,7 @@ main::-webkit-scrollbar {
     display: none;
 }
 
-footer {
-    padding-top: 2rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-footer div {
-    background: #10101880;
-    border: 1px solid white;
-    padding: 1rem;
-}
+
 
 
 
